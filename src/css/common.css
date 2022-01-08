@@ -18,12 +18,40 @@ img {
 }
 button {
   padding: 10px;
+  min-height: 40px;
   text-transform: uppercase;
 }
-.wrapper {
+.center {
   min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
+}
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+#datetime-picker {
+  display: inline-flex;
+  width: calc(100% - 90px);
+  height: 40px;
+  margin-right: 10px;
+}
+.timer {
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  text-align: center;
+}
+.value {
+  font-size: 32px;
+}
+.label {
+  text-transform: uppercase;
 }
