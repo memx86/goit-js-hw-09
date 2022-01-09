@@ -5,7 +5,9 @@ const refs = {
 let isIntervalSet = false;
 let intervalId = null;
 
+wrapBtns();
 toggleBtnDisable(refs.stopBtn);
+
 refs.startBtn.addEventListener('click', onStartBtnClick);
 refs.stopBtn.addEventListener('click', onStopBtnClick);
 
@@ -35,4 +37,13 @@ function onStopBtnClick() {
   clearInterval(intervalId);
   toggleBtnDisable(refs.startBtn);
   toggleBtnDisable(refs.stopBtn);
+}
+function wrapBtns() {
+  const mainRef = document.createElement('main');
+  const centerRef = document.createElement('div');
+  centerRef.classList.add('center');
+  mainRef.appendChild(centerRef);
+  refs.startBtn.before(mainRef);
+  centerRef.appendChild(refs.startBtn);
+  centerRef.appendChild(refs.stopBtn);
 }

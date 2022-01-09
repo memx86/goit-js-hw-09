@@ -1,8 +1,11 @@
 import flatpickr from 'flatpickr';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import 'flatpickr/dist/flatpickr.min.css';
+
 const refs = {
+  picker: document.querySelector('#datetime-picker'),
   startBtn: document.querySelector('[data-start]'),
+  timer: document.querySelector('.timer'),
   days: document.querySelector('[data-days]'),
   hours: document.querySelector('[data-hours]'),
   minutes: document.querySelector('[data-minutes]'),
@@ -24,6 +27,8 @@ const options = {
     selectedDate = selectedDates[0].getTime();
   },
 };
+
+wrapper();
 
 flatpickr('#datetime-picker', options);
 refs.startBtn.addEventListener('click', onStartBtnClick);
@@ -69,4 +74,21 @@ function updateTimerUI({ days, hours, minutes, seconds }) {
   refs.hours.textContent = addLeadingZero(hours);
   refs.minutes.textContent = addLeadingZero(minutes);
   refs.seconds.textContent = addLeadingZero(seconds);
+}
+function wrapper() {
+  const mainRef = document.createElement('main');
+  const centerRef = document.createElement('div');
+  const wrapperRef = document.createElement('div');
+
+  centerRef.classList.add('center');
+  wrapperRef.classList.add('wrapper');
+
+  centerRef.appendChild(wrapperRef);
+  mainRef.appendChild(centerRef);
+
+  refs.picker.before(mainRef);
+
+  wrapperRef.appendChild(refs.picker);
+  wrapperRef.appendChild(refs.startBtn);
+  wrapperRef.appendChild(refs.timer);
 }
