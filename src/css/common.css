@@ -32,6 +32,8 @@ button {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* Picker */
 #datetime-picker {
   display: inline-flex;
   width: calc(100% - 90px);
@@ -54,4 +56,21 @@ button {
 }
 .label {
   text-transform: uppercase;
+}
+
+/* Promises */
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-weight: 600;
+}
+.form label {
+  align-self: center;
+}
+.form input {
+  display: block;
+  margin-top: 5px;
+  width: 150px;
+  font-size: inherit;
 }
