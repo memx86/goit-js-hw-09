@@ -28,6 +28,7 @@ const options = {
   },
 };
 
+refs.startBtn.disabled = true;
 wrapper();
 
 flatpickr('#datetime-picker', options);
