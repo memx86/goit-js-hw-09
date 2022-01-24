@@ -21,22 +21,18 @@ const options = {
     selectedDate = selectedDates[0].getTime();
     if (Date.now() > selectedDate) {
       Notify.failure('Please choose a date in the future');
-      if (!refs.startBtn.disabled) toggleBtnDisable(refs.startBtn);
+      refs.startBtn.disabled = true;
       return;
     }
-    toggleBtnDisable(refs.startBtn);
+    refs.startBtn.disabled = false;
   },
 };
 
-toggleBtnDisable(refs.startBtn);
 wrapper();
 
 flatpickr('#datetime-picker', options);
 refs.startBtn.addEventListener('click', onStartBtnClick);
 
-function toggleBtnDisable(button) {
-  button.disabled = !button.disabled;
-}
 function onStartBtnClick() {
   const intervalId = setInterval(() => {
     const currentDate = Date.now();
