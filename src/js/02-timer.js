@@ -18,16 +18,17 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (Date.now() > selectedDates[0].getTime()) {
+    selectedDate = selectedDates[0].getTime();
+    if (Date.now() > selectedDate) {
       Notify.failure('Please choose a date in the future');
       if (!refs.startBtn.disabled) toggleBtnDisable(refs.startBtn);
       return;
     }
-    if (refs.startBtn.disabled) toggleBtnDisable(refs.startBtn);
-    selectedDate = selectedDates[0].getTime();
+    toggleBtnDisable(refs.startBtn);
   },
 };
 
+toggleBtnDisable(refs.startBtn);
 wrapper();
 
 flatpickr('#datetime-picker', options);
