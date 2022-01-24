@@ -15,7 +15,6 @@ function onFormSubmit(e) {
   for (let i = 0; i < amount; i += 1) {
     let position = i + 1;
     let delay = firstDelay + stepDelay * i;
-    console.log(delay);
     createPromise(position, delay).then(onSuccess).catch(onReject);
   }
 }
